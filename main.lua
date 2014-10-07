@@ -3,8 +3,8 @@ require("collision")
 require("player")
 require("coin")
 
-gameSpeed = 2
-wowtime, wowx, wowy, wowrota, wowtext, wowrgb = 0,0,0,0, "", {r=0, g=0, b=0}
+local gameSpeed = 2
+local wowtime, wowx, wowy, wowrota, wowtext, wowrgb = 0,0,0,0, "", {r=0, g=0, b=0}
 
 function love.load()
 	love.window.setMode(960, 640)
@@ -15,9 +15,9 @@ function love.load()
 	
 	score = 0
 
-	player:init() -- Yes, I'm aware I should probably be making a new object. Or not?
-	background:init() -- /\ See above /\
-	coin:init() -- /\ See above /\
+	player:init()
+	background.init()
+	coin:init()
 
 	music = love.audio.newSource("assets/music.ogg", "stream") -- Big thanks to dunderpatrullen for his fantastic track: To the moon. Get it here at: https://soundcloud.com/dunderpatrullen/teaser-dunderpatrullen-vs
 	music:setLooping(true)
@@ -26,7 +26,7 @@ function love.load()
 end
 
 function love.draw()	
-	background:draw()
+	background.draw()
 	player:draw() 
 	coin:draw()
 
@@ -45,7 +45,7 @@ function love.update(dt)
 	wowtime = wowtime + (1* dt)
 	if(wowtime > 5) then wowtime = 0 wow() end
 
-
+	background:change(score)
 	background:scroll(dt)
 	player:movement(dt)
 	coin:movement(dt)
@@ -54,7 +54,14 @@ end
 wows = {
 	"wow",
 	"much doge",
-	"to the moon!"
+	"to the moon!",
+	"very coin",
+	"amaze",
+	"pls",
+	"many happy",
+	"concern",
+	"such hats",
+	"back to work"
 }
 function wow()
 	wowtext = wows[math.random(1, #wows)]
