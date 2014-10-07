@@ -16,7 +16,7 @@ function love.load()
 	score = 0
 
 	player:init()
-	background.init()
+	background:init()
 	coin:init()
 
 	music = love.audio.newSource("assets/music.ogg", "stream") -- Big thanks to dunderpatrullen for his fantastic track: To the moon. Get it here at: https://soundcloud.com/dunderpatrullen/teaser-dunderpatrullen-vs
