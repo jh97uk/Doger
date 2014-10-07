@@ -3,6 +3,8 @@ require("collision")
 require("player")
 require("coin")
 
+gameSpeed = 2
+
 function love.load()
 	love.window.setMode(960, 640)
 	w, h = love.window.getDimensions()
@@ -31,6 +33,13 @@ function love.draw()
 end
 
 function love.update(dt)
+	-- Gamespeed multiplier increases by 0.1 per second
+	gameSpeed = gameSpeed + (0.1 * dt)
+
+	dt = dt * gameSpeed -- Modify the dt for the rest of the calculations
+
+	print(gameSpeed)
+
 	background:scroll(dt)
 	player:movement(dt)
 	coin:movement(dt)
