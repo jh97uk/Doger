@@ -5,20 +5,36 @@ background = {} -- we use this so we can keep it pretty in main.lua and call bac
 function background:init()
 	-- load in all the backgrounds
 	b[1] = {}
-	b[1].image = love.graphics.newImage("assets/moon.png")
-	b[1].behind = love.graphics.newImage("assets/moon.png")
+	b[1].image = love.graphics.newImage("assets/city.png")
+	b[1].behind = love.graphics.newImage("assets/city.png")
 	b[1].x = 0;
 	b[1].y = 0;
 	b[1].fX = b[1].image:getWidth()
 	b[1].scrollSpeed = 100
 
 	b[2] = {}
-	b[2].image = love.graphics.newImage("assets/testbackground.png")
-	b[2].behind = love.graphics.newImage("assets/testbackground.png")
+	b[2].image = love.graphics.newImage("assets/sky.png")
+	b[2].behind = love.graphics.newImage("assets/sky.png")
 	b[2].x = 0;
 	b[2].y = 0;
 	b[2].fX = b[1].image:getWidth()
 	b[2].scrollSpeed = 100
+	
+	b[3] = {}
+	b[3].image = love.graphics.newImage("assets/moon.png")
+	b[3].behind = love.graphics.newImage("assets/moon.png")
+	b[3].x = 0;
+	b[3].y = 0;
+	b[3].fX = b[1].image:getWidth()
+	b[3].scrollSpeed = 100
+
+	b[4] = {}
+	b[4].image = love.graphics.newImage("assets/testbackground.png")
+	b[4].behind = love.graphics.newImage("assets/testbackground.png")
+	b[4].x = 0;
+	b[4].y = 0;
+	b[4].fX = b[1].image:getWidth()
+	b[4].scrollSpeed = 100
 
 	cb = 1
 end
@@ -47,6 +63,6 @@ function background:change(doge)
 		cb = 2
 	elseif doge <= 200 then
 		-- sky? etc...
-		--cb = 3
+		cb = 3
 	end
 end
